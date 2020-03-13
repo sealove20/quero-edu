@@ -1,23 +1,17 @@
 import React from 'react';
-import GlobalStyles from './styles/global';
-import styled, { ThemeProvider } from 'styled-components';
 
-import quero from '../src/styles/themes/quero';
+import './App.scss';
 
-const Container = styled.div`
-  height: 500px;
-  width: 500px;
-  background-color: ${props => props.theme.secondaryBlue};
-`;
+import Header from './components/Header';
 
 function App() {
   return (
-    <ThemeProvider theme={quero}>
-      <GlobalStyles />
-      <Container data-test="div-component">
+    <>
+      <Header />
+      <div data-test="div-component">
         <h1>sasa</h1>
-      </Container>
-    </ThemeProvider>
+      </div>
+    </>
   );
 }
 
