@@ -1,14 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './styles.scss';
 
-export default function HeaderInfo({ wrapperClass, iconName, text }) {
+function HeaderInfo({ headerInfoCLass, iconName, text }) {
   return (
-    <span className={wrapperClass}>
+    <span className={headerInfoCLass} data-test="header-info-component">
       <FontAwesomeIcon className="header-icons" icon={iconName} />
       <p>{text}</p>
     </span>
   );
 }
+
+HeaderInfo.propTypes = {
+  headerInfoCLass: PropTypes.string,
+  iconName: PropTypes.object,
+  text: PropTypes.string,
+};
+
+export default HeaderInfo;

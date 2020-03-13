@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 import HeaderInfo from '../HeaderInfo';
@@ -10,17 +9,21 @@ import './styles.scss';
 
 export default function Header() {
   return (
-    <header>
+    <header id="header" data-test="header-component">
       <HeaderInfo
-        wrapperClass={'header-info'}
+        headerInfoCLass={'header-info'}
         iconName={faInfoCircle}
         text={'Ajuda'}
       />
       <div className="header-logo-wrapper">
-        <img src={queroIcon} alt="Quero Educação Logo" />
+        <img
+          className="header-logo"
+          src={queroIcon}
+          alt="Quero Educação Logo"
+        />
       </div>
       <HeaderInfo
-        wrapperClass={'header-user'}
+        headerInfoCLass={'header-user'}
         iconName={faUserCircle}
         text={'Conta'}
       />

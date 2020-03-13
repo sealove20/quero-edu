@@ -9,12 +9,12 @@ span {
   width: 30%;
   color: $secondaryBlue;
 
-  .header-icons {
-    font-size: 40px;
+  p {
+    margin-top: 3px;
+    font-weight: bold;
   }
 
-  p {
-    font-weight: bold;
-    margin-top: 3px;
+  .header-icons {
+    font-size: 40px;
   }
 }

@@ -3,14 +3,13 @@ import React from 'react';
 import './App.scss';
 
 import Header from './components/Header';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <>
       <Header />
-      <div data-test="div-component">
-        <h1>sasa</h1>
-      </div>
+      <Nav />
     </>
   );
 }
