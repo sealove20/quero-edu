@@ -1,9 +1,5 @@
 @import '../../styles/colors';
-@mixin dropdown-common-style() {
-  font-weight: bold;
-  font-size: 18px;
-  color: $whiteTest;
-}
+@import '../../styles//utils';
 
 @keyframes dropdownAnimation {
   0% {
@@ -15,7 +11,7 @@
   100% {
     opacity: 1;
     right: 0px;
-    top: 105px;
+    top: 110px;
     transform: rotateY(0deg) translateY(0px);
   }
 }
@@ -31,7 +27,7 @@
   background-color: $primaryBlue;
 
   .dropdown-button-text {
-    @include dropdown-common-style();
+    @include nav-text-style();
     letter-spacing: 1.5px;
   }
 }
@@ -39,7 +35,7 @@
 .dropdown-icon {
   margin-top: 4px;
 
-  @include dropdown-common-style();
+  @include nav-text-style();
 }
 
 .dropdown-content {
@@ -48,20 +44,22 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 105px;
+  top: 110px;
   right: 0;
 
-  height: 80px;
+  height: 100px;
   width: 200px;
 
+  border-radius: 2px;
   list-style: none;
   letter-spacing: 1.5px;
   margin-top: 25px;
   animation: dropdownAnimation 0.25s ease-out;
-  @include dropdown-common-style();
+  @include nav-text-style();
   background-color: $primaryBlue;
 
   li {
+    height: 35px;
     margin-top: 10px;
   }
 }

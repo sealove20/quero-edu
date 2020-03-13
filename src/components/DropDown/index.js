@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './styles.scss';
 
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function DropDown() {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-
-  function toggleDropDown() {
-    setIsDropDownOpen(!isDropDownOpen);
-  }
-
+export default function DropDown({ toggleDropDown,  isDropDownOpen}) {
   return (
-    <>
-      <button className='dropdown-button' onClick={toggleDropDown}>
+    <div data-test='dropdown-component'>
+      <button className='dropdown-button' onClick={toggleDropDown} data-test='dropdown-button'>
         <p className='dropdown-button-text'>Menu</p>
         <FontAwesomeIcon
           icon={isDropDownOpen ? faAngleUp : faAngleDown}
@@ -22,11 +16,11 @@ export default function DropDown() {
         />
       </button>
       {isDropDownOpen ? (
-        <ul className={isDropDownOpen ? 'dropdown-content' : ''}>
-          <li> Menu 1 </li>
-          <li> Menu 2 </li>
+        <ul className={isDropDownOpen ? 'dropdown-content' : ''} data-test='dropdown-menu'>
+          <li> Pré-matrículas </li>
+          <li> Bolsas Favoritas </li>
         </ul>
       ) : null}
-    </>
+    </div>
   );
 }

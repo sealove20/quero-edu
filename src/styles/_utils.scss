@@ -5,3 +5,9 @@
     )
     no-repeat $side/4px 75%;
 }
+
+@mixin nav-text-style() {
+  font-weight: bold;
+  font-size: 20px;
+  color: $whiteText;
+}

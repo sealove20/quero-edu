@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+@import '../../styles//utils';
 
 .container {
   display: flex;
@@ -11,10 +12,8 @@
   background-color: $primaryBlue;
 
   .nav-current-menu {
-    font-weight: bold;
-    font-size: 18px;
     letter-spacing: 1px;
     margin-left: 15px;
-    color: $whiteTest;
+    @include nav-text-style();
   }
 }
