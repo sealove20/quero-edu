@@ -1,10 +1,31 @@
 @import '../../styles/colors';
+@import '../../styles/utils';
 
 header {
-  width: 500px;
-  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  height: 80px;
+  background-color: $grayBackground;
+  border-bottom: 1px solid black;
 
-  h1 {
-    background-color: $primaryBlue;
+  img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .header-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+  .header-user {
+    @include middleBorder(left);
+  }
+  .header-info {
+    @include middleBorder(right);
   }
 }

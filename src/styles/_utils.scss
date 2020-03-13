@@ -1,0 +1,7 @@
+@mixin middleBorder($side) {
+  background: linear-gradient(
+      rgba(200, 200, 200, 0.3),
+      rgba(200, 200, 200, 0.3)
+    )
+    no-repeat $side/4px 75%;
+}
