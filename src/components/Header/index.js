@@ -9,17 +9,17 @@ import './styles.scss';
 
 export default function Header() {
   return (
-    <header id="header" data-test="header-component">
+    <header id='header' data-test='header-component'>
       <HeaderInfo
         headerInfoCLass={'header-info'}
         iconName={faInfoCircle}
         text={'Ajuda'}
       />
-      <div className="header-logo-wrapper">
+      <div className='header-logo-wrapper'>
         <img
-          className="header-logo"
+          className='header-logo'
           src={queroIcon}
-          alt="Quero Educação Logo"
+          alt='Quero Educação Logo'
         />
       </div>
       <HeaderInfo

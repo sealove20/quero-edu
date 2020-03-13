@@ -1,0 +1,67 @@
+@import '../../styles/colors';
+@mixin dropdown-common-style() {
+  font-weight: bold;
+  font-size: 18px;
+  color: $whiteTest;
+}
+
+@keyframes dropdownAnimation {
+  0% {
+    opacity: 0;
+    right: 0px;
+    top: 50px;
+    transform: rotateY(-90deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    right: 0px;
+    top: 105px;
+    transform: rotateY(0deg) translateY(0px);
+  }
+}
+
+.dropdown-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 100px;
+  
+  border: none;
+  background-color: $primaryBlue;
+
+  .dropdown-button-text {
+    @include dropdown-common-style();
+    letter-spacing: 1.5px;
+  }
+}
+
+.dropdown-icon {
+  margin-top: 4px;
+
+  @include dropdown-common-style();
+}
+
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 105px;
+  right: 0;
+
+  height: 80px;
+  width: 200px;
+
+  list-style: none;
+  letter-spacing: 1.5px;
+  margin-top: 25px;
+  animation: dropdownAnimation 0.25s ease-out;
+  @include dropdown-common-style();
+  background-color: $primaryBlue;
+
+  li {
+    margin-top: 10px;
+  }
+}

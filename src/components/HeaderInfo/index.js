@@ -7,8 +7,8 @@ import './styles.scss';
 
 function HeaderInfo({ headerInfoCLass, iconName, text }) {
   return (
-    <span className={headerInfoCLass} data-test="header-info-component">
-      <FontAwesomeIcon className="header-icons" icon={iconName} />
+    <span className={headerInfoCLass} data-test='header-info-component'>
+      <FontAwesomeIcon className='header-icons' icon={iconName} />
       <p>{text}</p>
     </span>
   );

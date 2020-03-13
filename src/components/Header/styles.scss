@@ -4,8 +4,10 @@
 #header {
   display: flex;
   justify-content: space-around;
+
   width: 100vw;
   height: 80px;
+
   background-color: $grayBackground;
 
   .header-logo {
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     height: 100%;
     width: 100%;
   }
