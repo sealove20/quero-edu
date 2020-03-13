@@ -2,10 +2,15 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { findByTestAttr, checkProps } from '../../../tests/testUtils';
-import DropDown from './'
+import DropDown from './';
+
+const defaultProps = {
+  toggleDropDown: () => {},
+  isDropDownOpen: false,
+};
 
 const setup = (props = {}) => {
-  const setupProps = { ...props };
+  const setupProps = { ...defaultProps,...props };
   return  shallow(<DropDown {...setupProps} />);
 };
 
@@ -19,4 +24,8 @@ test('dropdown menu starts hidden', () => {
   
   const dropdownMenu = findByTestAttr(wrapper, 'dropdown-menu');
   expect(dropdownMenu.length).toBe(0);
-})
+});
+test('does not throw warning with expected props', () => {
+  const expectedProps = defaultProps;
+  checkProps(DropDown, expectedProps);
+});

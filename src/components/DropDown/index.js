@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function DropDown({ toggleDropDown,  isDropDownOpen}) {
+function DropDown({ toggleDropDown,  isDropDownOpen}) {
   return (
     <div data-test='dropdown-component'>
       <button className='dropdown-button' onClick={toggleDropDown} data-test='dropdown-button'>
@@ -24,3 +25,10 @@ export default function DropDown({ toggleDropDown,  isDropDownOpen}) {
     </div>
   );
 }
+
+DropDown.propTypes = {
+  toggleDropDown: PropTypes.func,
+  isDropDownOpen: PropTypes.bool,
+}
+
+export default DropDown;
