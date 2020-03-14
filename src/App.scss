@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import './styles/colors';
+
 
 * {
   margin: 0;
@@ -7,3 +9,22 @@
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
+.main-container {
+
+  margin: 0 23px;
+
+  .main-title {
+    font-size: 46px;
+    margin-top: 40px;
+    color: $blackText;
+  }
+  
+  .main-text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 14px;
+    color: $blackText;
+  }
+}
+

@@ -1,0 +1,27 @@
+@import '../../styles/colors';
+
+.tab-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 70px;
+  width: 100%;
+    
+  border: 1.2px solid $secondaryBlue;
+  border-radius: 5px;
+  
+  .tab-menu-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: $secondaryBlue;
+  }
+}
+
+.active {
+  background-color: $secondaryBlue;
+
+  .tab-menu-text {
+    color: $whiteText;
+  }
+}

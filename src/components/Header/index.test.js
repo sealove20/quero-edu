@@ -7,7 +7,7 @@ import Header from './';
 const setup = (props = {}) => {
   const setupProps = { ...props };
   return shallow(<Header {...setupProps} />);
-};
+}; 
 
 test('render without error', () => {
   const wrapper = setup();
