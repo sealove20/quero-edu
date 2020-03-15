@@ -3,14 +3,15 @@
 #footer {
   display: flex;
   flex-direction: column;
-  height: 300px;
+
   width: 100%;
   margin-top: 175px;
+
   background-color: $primaryBlue;
 
   .cards-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
   }
   
   .footer-card-wrapper {
@@ -20,11 +21,12 @@
 
   .footer-message-wrapper {
     display: flex;
-    height: 100%;
-    width: 100%;
     justify-content: center;
     align-items: center;
 
+    height: 125px;
+    width: 100%;
+    
     background-color: $primaryBlue;
 
     .footer-message {
@@ -34,8 +36,3 @@
   }
 }
 
-@media screen and (min-width: 500px) {
-  .cards-wrapper {
-    flex-direction: row;
-  }
-}

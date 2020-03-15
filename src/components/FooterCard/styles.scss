@@ -2,33 +2,40 @@
 
 .container {
   display: flex;
+  flex-grow: 1;
   justify-content: center;
-  width: calc(33% - 1rem);
+  flex-wrap: wrap;
+
   height: 110px;
+
   background-color: $secondaryBlue;
-  margin: 2px;
-  
-  .footer-icon {
-    font-size: 50px;
-    color: $whiteText;
-  }
 
   .footer-wrapper {
     display: flex;
     align-items: center;
   }
 
+  .footer-icon {
+    margin-top: 10px;
+    font-size: 48px;
+    color: $whiteText;
+  }
+
   .card-text-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 25px;
+
     width: 100%;
-    color: $whiteText;
     height: 100px;
+
     font-size: 16px;
+    margin-left: 25px;
+    color: $whiteText;
 
     .card-title {
+      display: inline;
+
       font-weight: bold;
       font-size: 20px;
     }
@@ -39,9 +46,47 @@
   }
 }
 
+.container:first-child {
+  .card-text-wrapper {
+    .card-short-text {
+      display: inline;
+    }
+    .card-text {
+      display: none;
+    }
+  }
+}
 
-@media screen and (max-width: 500px) {
+.container:hover {
+  background-color: $primaryBlue;
+  transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  .container:first-child {
+      width: 100%;
+
+    .footer-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      height: 100%;
+
+      .card-title,
+      .card-text {
+        display: inline;
+      }
+
+      .card-short-text {
+        display: none;
+      }
+    }
+  }
+  
   .container {
+    margin: 1px;
     .footer-wrapper {
       display: flex;
       flex-direction: column;
