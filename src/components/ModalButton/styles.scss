@@ -1,0 +1,33 @@
+@import '../../styles/colors';
+
+.modal-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px 0;
+
+  .modal-button-icon {
+    font-size: 100px;
+    color: $primaryBlue;
+  }
+  
+  .modal-button-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 40px;
+    color: $blackText;
+  }
+  
+  .modal-button-text {
+    width: 60%; 
+  
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 5px;
+    color: $blackText;
+  }
+}
+

@@ -1,0 +1,156 @@
+@import '../../styles/colors';
+
+.course-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 95%;
+
+  margin: 30px 0;
+
+  .course-university-logo {
+    margin-bottom: 15px;
+  }
+  
+  .course-name-and-university-name-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 50px;
+
+    margin: 15px 0;
+
+    .course-university-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .course-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: $secondaryBlue;
+    }    
+  }
+
+  .course-stars-wrapper {
+    display: flex;
+    width: 125px;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    .course-score {
+      font-weight: bold;
+      margin-top: 3px;
+      margin-right: 5px;
+    }
+  
+    .star {
+      letter-spacing: 1.5;
+      color: $primaryYellow;
+    }
+  }
+  
+  .course-kind-and-shift {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 175px;
+
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+
+  .course-start-date {
+    margin: 15px 0;
+  }
+
+  .course-price-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 75px;
+
+    margin: 15px 0;
+
+    .course-price-name {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .course-full-price {
+      text-decoration: line-through;
+    }
+
+    .course-with-discount-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 135px;
+
+      .course-with-discount {
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 5px;
+        color: $green;
+      }
+    }
+  }
+
+  .course-buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    margin-top: 10px;
+  
+    .course-delete-button {
+      height: 60px;
+      width: 155px;
+
+      border: 1px solid $primaryBlue;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: transparent;
+      color: $secondaryBlue;
+    }
+    
+    .course-see-offert {
+      height: 60px;
+      width: 220px;
+
+      border: 1px solid $secondaryYellow;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: $primaryYellow;
+      color: $blackText;
+    }
+  }
+
+  hr {
+    height: 3px;
+    width: 100%;
+    
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(66, 66, 66, 0.1);
+  }
+}
+
+
+
+
+

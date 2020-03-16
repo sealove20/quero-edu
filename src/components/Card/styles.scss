@@ -1,35 +1,9 @@
-@import '../../styles/colors';
-
 .card-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  height: 290px;
-
   margin-top: 45px;
   box-shadow: 1px 1px 15px -7px rgba(0,0,0,0.50);
-
-  .card-icon {
-    font-size: 100px;
-    color: $primaryBlue;
-  }
-
-  .card-title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 40px;
-    color: $blackText;
-  }
-
-  .card-text {
-    width: 60%; 
-
-    font-size: 16px;
-    text-align: center;
-    line-height: 1.5;
-    margin-top: 5px;
-    color: $blackText;
-  }
 }

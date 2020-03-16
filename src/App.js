@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './App.scss';
 
+import { useCourses } from './context/Courses';
+
 import Header from './components/Header';
 import Nav from './components/Nav';
-import BackButton from './components/BackButton'
+import BackButton from './components/BackButton';
 import TabMenu from './components/TabMenu';
-import Card from './components/Card'
-import Footer from './components/Footer'
-import Modal from './components/Modal'
+import Card from './components/Card';
+import Footer from './components/Footer';
+import Modal from './components/Modal';
+import ModalButton from './components/ModalButton';
+import CourseCard from './components/CourseCard';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { courses, setCourses } = useCourses();
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen)
@@ -26,7 +31,12 @@ function App() {
         <h1 className="main-title">Bolsas favoritas</h1>
         <p className="main-text">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis</p>
         <TabMenu />
-        <Card openModal={toggleModal} />
+        <Card>
+          <ModalButton openModal={toggleModal} />
+        </Card>
+        <Card>
+          <CourseCard courses={courses}/>
+        </Card>
       </main>
        <Modal  isModalOpen={isModalOpen} closeModal={toggleModal} />
       <Footer />
