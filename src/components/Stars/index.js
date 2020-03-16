@@ -4,21 +4,24 @@ import './styles.scss';
 
 import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import starOff from '../../assets/images/star-regular.svg';
 
-function renderStars(score) {
-  const num = 3.2;
-  const intPart = Math.floor(num);
-  const decimalPart = num - Math.floor(num);
-  console.log(num)
-}
+export default function Stars({ totalStars, score }) {
+  const intPart = Math.floor(score);
+  let decimalPart = score - Math.floor(score);
 
-export default function Stars() {
-  const totalStars = 5;
   return (
     <>
-      {[...Array(totalStars)].map((n, i) => (
-        <FontAwesomeIcon key={i} icon={faStar} className='star'/>
-      ))}
+      {[... Array(totalStars)].map((n, i) => {
+        if (i + 1 <= intPart) {
+          return <FontAwesomeIcon key={i} icon={faStar} className='star' swapOpacity />
+        } else if (decimalPart > 0) {
+          decimalPart = 0;
+          return <FontAwesomeIcon key={i} icon={faStarHalfAlt} className='star'/>
+        } else {
+          return <img src={starOff} alt="" className="star-off" />
+        }
+      })}
     </>
   )
 }

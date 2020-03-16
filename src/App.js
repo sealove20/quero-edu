@@ -17,6 +17,7 @@ import CourseCard from './components/CourseCard';
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { courses, setCourses } = useCourses();
+  const filter = courses.filter(course => course.enrollment_semester === "2020.1")
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen)
@@ -34,9 +35,11 @@ function App() {
         <Card>
           <ModalButton openModal={toggleModal} />
         </Card>
-        <Card>
-          <CourseCard courses={courses}/>
-        </Card>
+        {filter.map(course => (
+          <Card>
+            <CourseCard course={course} />
+          </Card>
+        ))}
       </main>
        <Modal  isModalOpen={isModalOpen} closeModal={toggleModal} />
       <Footer />

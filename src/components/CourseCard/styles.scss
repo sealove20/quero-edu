@@ -61,11 +61,17 @@
     justify-content: space-between;
     align-items: center;
 
-    width: 175px;
-
     font-size: 18px;
     font-weight: bold;
     margin-top: 15px;
+
+    .course-kind {
+      margin-right: 5px;
+    }
+
+    .course-shift {
+      margin-left: 5px;
+    }
   }
 
   .course-start-date {
@@ -95,8 +101,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      width: 135px;
 
       .course-with-discount {
         font-size: 20px;
