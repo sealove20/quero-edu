@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 
 import './styles.scss';
 
+import { useCourses } from '../../context/Courses'; 
+
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Modal({ isModalOpen, closeModal }) {
+  const { courses, setCourses } = useCourses();
   const [value, setValue] = useState(20000);
   if(!isModalOpen) return null
   return (
@@ -63,18 +66,46 @@ export default function Modal({ isModalOpen, closeModal }) {
               />
             </div>
           </form>
-          <div className='modal-results-wrapper'>
-            <p className='modal-results-text'>Resultado:</p>
-            <div className='modal-results-select-wrapper'>
-              <label htmlFor='order-by' className='modal-results-select-label'>Ordenar por</label>
-              <select name='order' id='order-by' className='modal-results-select'>
+          <div className='modal-results-filters-wrapper'>
+            <p className='modal-results-filters-text'>Resultado:</p>
+            <div className='modal-results-filters-select-wrapper'>
+              <label htmlFor='order-by' className='modal-results-filters-select-label'>Ordenar por</label>
+              <select name='order' id='order-by' className='modal-results-filters-select'>
                 <option value='all'>Nome da faculdade</option>
                 <option value='cuiaba'>Nome do curso</option>
                 <option value='cuiaba'>Valor</option>
               </select>
             </div>
           </div>
-
+          <hr className='horizontal-line'/>
+          {courses.map(course => (
+          <>
+            <div className='modal-results-wrapper'>
+              <input type="checkbox" name="course" id="course" className='modal-results-checkbox'/>
+              <label htmlFor='course' className='modal-results-university-logo-wrapper'>
+                <img src={course.university.logo_url} alt="logo" className='modal-results-university-logo'/>
+              </label>
+              <div className='modal-results-info'>
+                <div className='modal-results-course-name-and-level-wrapper'>
+                  <p className='modal-results-course-name'>{course.course.name}</p>
+                  <p className='modal-results-course-level'>{course.course.level}</p>
+                </div>
+                <div className="modal-results-course-price-and-discount-wrapper">
+                  <div className='modal-results-course-discount-green'>
+                    <p className='modal-results-course-discount'>Bolsa de &nbsp;</p>
+                    <p className='modal-results-course-discount-green'>{course.discount_percentage}%</p>
+                  </div>
+                  <p className='modal-results-course-price'>R${course.price_with_discount}/mês</p>
+                </div>
+              </div>
+            </div>
+            <hr className='horizontal-line'/>
+          </> 
+          ))}
+          <div className='course-buttons-wrapper'>
+              <button className='course-delete-button'>Cancelar</button>
+              <button className='course-see-offert'>Adicionar bolsa(s)</button>
+            </div>
         </div>
       </div>
     </div>

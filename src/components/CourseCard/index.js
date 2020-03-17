@@ -23,7 +23,7 @@ export default function CourseCard({ course }) {
         <p className='course-shift'>{course.course.shift.toUpperCase()}</p>
       </div>
       <p className='course-start-date'>Início das aulas em: {course.start_date}</p>
-      <hr/>
+      <hr className='horizontal-line'/>
       <div className='course-price-wrapper'>
         <p className='course-price-name'>Mensalidade com o Quero Bolsa:</p>
         <p className='course-full-price'>R${course.full_price}</p>
