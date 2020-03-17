@@ -11,9 +11,9 @@ export default function Nav() {
     setIsDropDownOpen(!isDropDownOpen);
   }
   return (
-    <nav className='nav-container' data-test="nav-component">
+    <nav className='nav-container' data-test='nav-component'>
       <p className='nav-current-menu'>Minha conta</p>
-      <DropDown toggleDropDown={toggleDropDown} isDropDownOpen={isDropDownOpen}/>
+      <DropDown toggleDropDown={toggleDropDown} isDropDownOpen={isDropDownOpen} text={'Menu'} items={['Pré-matrículas','Bolsas Favoritas']}/>
     </nav>
   );
 }

@@ -27,7 +27,7 @@ function App() {
     <>
       <Header />
       <Nav />
-      <main id="main-container">
+      <main id="main">
         <BackButton />
         <h1 className="main-title">Bolsas favoritas</h1>
         <p className="main-text">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis</p>
@@ -40,8 +40,8 @@ function App() {
             <CourseCard course={course} />
           </Card>
         ))}
-      </main>
        <Modal  isModalOpen={isModalOpen} closeModal={toggleModal} />
+      </main>
       <Footer />
     </>
   );

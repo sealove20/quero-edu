@@ -6,11 +6,11 @@ import './styles.scss';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-function DropDown({ toggleDropDown,  isDropDownOpen}) {
+function DropDown({ toggleDropDown,  isDropDownOpen, text, items }) {
   return (
     <div data-test='dropdown-component'>
       <button className='dropdown-button' onClick={toggleDropDown} data-test='dropdown-button'>
-        <p className='dropdown-button-text'>Menu</p>
+        <p className='dropdown-button-text'>{text}</p>
         <FontAwesomeIcon
           icon={isDropDownOpen ? faAngleUp : faAngleDown}
           className='dropdown-icon'
@@ -18,8 +18,9 @@ function DropDown({ toggleDropDown,  isDropDownOpen}) {
       </button>
       {isDropDownOpen ? (
         <ul className={isDropDownOpen ? 'dropdown-content' : ''} data-test='dropdown-menu'>
-          <li> Pré-matrículas </li>
-          <li> Bolsas Favoritas </li>
+          {items.map((item, index) => (
+            <li key={index}> {item} </li>
+          ))}
         </ul>
       ) : null}
     </div>

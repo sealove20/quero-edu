@@ -1,4 +1,5 @@
 @import '../../styles/colors';
+
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -7,26 +8,237 @@
       opacity: 1;
   }
 }
+
 .modal {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   position: fixed;
-  z-index: 1;
   bottom: 0;
   left: 0;
+  z-index: 1;
 
   height: 100%;
   width: 100%;
 
-  padding-top: 40px;
+  padding-top: 20px;
   overflow-y: scroll;
   animation: fadeIn 0.5s;
   background-color: $modalOverlay;
 
+
+
+  .modal-close-icon {
+    align-self: flex-end;
+    color: $whiteText;
+    font-size: 40px;
+    margin-right: 20px;
+    margin-bottom: 20px
+  } 
+
   .modal-content {
     width: 100%;
-    height: 100%;
+
     background-color: white;
+
+    .modal-wrapper {
+      margin: 0 30px;
+
+      .modal-header-title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 30px;
+        margin-bottom: 5px;
+      }
+
+      .modal-header-text {
+        font-size: 18px;
+      }
+
+      .modal-form {
+        .modal-form-select-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          margin: 25px 0;
+
+          .modal-form-select-label {
+            font-weight: bold;
+            margin-bottom: 3px;
+          }
+
+          .modal-form-select {
+            height: 70px;
+
+            border-radius: 5px;
+            font-size: 18px;
+            padding-left: 10px;
+            padding-right: 20px;
+            background: url('../../assets/images/angle-arrow-down (5).png') no-repeat 95% 50%;
+            appearance: none;
+            border: 1px solid rgba(66, 66, 66, 0.3);
+          }
+        }
+        .modal-form-kind-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .modal-form-kind-text {
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          .modal-form-kind-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 230px;
+            margin: 35px 0;
+
+            .modal-form-checkbox {
+              opacity: 0;
+            }
+
+            .modal-form-checkbox-label::before {
+              position: absolute;
+              top: 2px;
+              left:-24px;
+
+              content: '';
+              display: inline-block;
+              
+              height: 15px;
+              width: 15px;
+              
+              border: 1px solid; 
+              border-radius: 3px;
+            }
+
+            .modal-form-checkbox-label::after {
+              position: absolute;
+              left:-21px;
+              top: 5px;
+
+              content: '';
+              display: inline-block;
+
+              height: 6px;
+              width: 9px;
+              border-left: 2px solid;
+              border-bottom: 2px solid;
+
+              transform: rotate(-45deg);
+            }
+
+            .modal-form-checkbox + label::after {
+              content: none;
+            }
+
+            .modal-form-checkbox:checked + label::after {
+              content: '';
+              color: $whiteText;
+            }
+
+            .modal-form-checkbox:checked + label::before {
+              background-color: $primaryBlue;
+              border: 1px solid $primaryBlue;
+            }
+
+            .modal-form-checkbox-label {
+              position: relative;
+              font-size: 18px;
+            }
+          }
+        }
+        
+        .modal-form-price-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .modal-form-price-label {
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          .modal-form-price-value {
+            font-size: 18px;
+            margin-top: 5px; 
+            margin-bottom: 15px;
+          }
+
+          .modal-form-range {
+            appearance: none;
+            width: 100%;
+            background: transparent;
+          }
+
+          .modal-form-range::-webkit-slider-thumb {
+            appearance: none;
+            border: 2px solid $primaryBlue;
+            border-radius: 50px;
+            height: 36px;
+            width: 36px;
+            background: #fff;
+            cursor: pointer;
+            margin-top: -14px
+          }
+
+          .modal-form-range::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6.4px;
+            cursor: pointer;
+            background: $primaryBlue;
+            border: none;
+            border-radius: 5px;
+          }
+
+          .modal-form-range:focus {
+            outline: none;
+          }
+
+          .modal-form-range::-ms-track {
+            width: 100%;
+            cursor: pointer;
+
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+          }
+        }
+      }
+      .modal-results-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0;
+        width: 100%;
+
+        .modal-results-text {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .modal-results-select-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          align-items: flex-end;
+
+          .modal-results-select-label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+          }
+
+          .modal-results-select {
+            border: none;
+            color: $primaryBlue;
+            font-size: 16px;
+            appearance: none;
+            background: url('../../assets/images/angle-arrow-down (6).png') no-repeat 95% 50%;
+            padding-right: 30px;
+          }
+        }
+      }
+    }
   }
 }
