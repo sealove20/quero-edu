@@ -25,3 +25,27 @@
     color: $whiteText;
   }
 }
+
+@media screen and (min-width: 1024px) { 
+  .tab-menu-item {
+    height: 40px;
+    width: 250px;
+  }
+
+  .tab-menu-item:nth-child(2) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .tab-menu-item:nth-child(1) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .tab-menu-item:nth-child(3) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  } 
+}

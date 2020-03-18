@@ -8,7 +8,9 @@ export default function TabMenu() {
   function handleClick(value) {
     setChosen(value)
   }
+
   const [chosen, setChosen] = useState('all');
+  
   return (
     <div className='tab-menu-wrapper' data-test='tab-menu-component'>
       <TabBarItem 
