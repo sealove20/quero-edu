@@ -18,12 +18,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function Modal({ isModalOpen, closeModal }) {
   const { courses } = useCourses();
   const [value, setValue] = useState(20000);
+  const [city, setCity] = useState('');
 
-  const cities = ['São José dos Campos', 'São Paulo'];
+  const filter = courses.filter(course => course.course.kind === 'EaD');
+
+  const cities = [... new Set(courses.map(course => course.campus.city))];
+
   const coursesNames = ['Ciências Contábeis', 'Ciências da computação'];
 
-  function handlePrice(e) {
-    setValue(e.target.value)
+  function handlePrice(event) {
+    setValue(event.target.value)
+  }
+
+  function handleSelectChange(event) {
+    setCity(event.target.value);
+    console.log(city);
   }
 
   if(!isModalOpen) return null
@@ -35,18 +44,23 @@ function Modal({ isModalOpen, closeModal }) {
           <p className='modal-header-title'>Adicionar bolsa</p>
           <p className='modal-header-text'>Filtre e adicione as bolsas de seu interesse.</p>
           <form className='modal-form'>
-            <FormSelect label='SELECIONE SUA CIDADE' items={cities}/>
-            <FormSelect label='SELECIONE O CURSO DE SUA PREFERÊNCIA' items={coursesNames} />
-            <div className='modal-form-kind-wrapper'>
-              <p className='modal-form-kind-text'>COMO VOCÊ QUER ESTUDAR?</p>
-              <div className='modal-form-kind-checkbox-wrapper'>
-                <FormCheckbox title='Presencial' name='presencial' id='presencial' labelId='presencial'/>
-                <FormCheckbox title='A distância' name='ead' id='ead' labelId='ead'/>
+            <div className='modal-form-select-container'>
+              <FormSelect label='SELECIONE SUA CIDADE' items={cities} handleSelectChange={handleSelectChange}/>
+              <FormSelect label='SELECIONE O CURSO DE SUA PREFERÊNCIA' items={coursesNames} />
+            </div>
+            <div className='modal-form-kind-and-price-wrapper'>
+              <div className='modal-form-kind-wrapper'>
+                <p className='modal-form-kind-text'>COMO VOCÊ QUER ESTUDAR?</p>
+                <div className='modal-form-kind-checkbox-wrapper'>
+                  <FormCheckbox title='Presencial' name='presencial' id='presencial' labelId='presencial'/>
+                  <FormCheckbox title='A distância' name='ead' id='ead' labelId='ead'/>
+                </div>
+              </div>
+              <div className='modal-form-price-wrapper'>
+                <FormRangePrice value={value} handlePrice={handlePrice} min='0' max='10000' />
               </div>
             </div>
-            <div className='modal-form-price-wrapper'>
-              <FormRangePrice value={value} handlePrice={handlePrice} min='0' max='10000' />
-            </div>
+
           </form>
           <div className='modal-results-filters-wrapper'>
             <p className='modal-results-filters-text'>Resultado:</p>
@@ -55,12 +69,12 @@ function Modal({ isModalOpen, closeModal }) {
               <select name='order' id='order-by' className='modal-results-filters-select'>
                 <option value='university'>Nome da faculdade</option>
                 <option value='course'>Nome do curso</option>
-                <option value='price'>Valor</option>
+                <option value='price'>Preço</option>
               </select>
             </div>
           </div>
           <HorizontalLine />
-          {courses.map((course, index) => (
+          {filter.map((course, index) => (
           <>
             <ResultCard key={index} index={index} item={course} />
             <HorizontalLine />

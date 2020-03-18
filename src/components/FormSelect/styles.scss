@@ -21,3 +21,17 @@
     background: url('../../assets/images/angle-arrow-down (5).png') no-repeat 95% 50%;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .modal-form-select-wrapper {
+    justify-content: center;
+    align-items: flex-start;
+    
+    height: 100px;
+    width: 100%;
+    
+    .modal-form-select {
+      width: 95%;
+    }
+  }
+}

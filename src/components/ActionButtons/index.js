@@ -13,7 +13,6 @@ function ActionButtons({ children }) {
 
 ActionButtons.propTypes = {
   children: PropTypes.object,
-
 }
 
 export default ActionButtons;

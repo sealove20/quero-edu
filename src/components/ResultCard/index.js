@@ -7,6 +7,7 @@ import ResultCardCheckbox from '../ResultCardCheckbox';
 
 function ResultCard({ index, item }) {
   const { university : {logo_url}, course : { name, level}, discount_percentage, price_with_discount } = item;
+
   return (
     <div className='modal-results-wrapper'>
       <ResultCardCheckbox index={index} />
@@ -19,7 +20,7 @@ function ResultCard({ index, item }) {
         <div className="modal-results-course-price-and-discount-wrapper">
           <div className='modal-results-course-discount-green-wrapper'>
             <p className='modal-results-course-discount'>Bolsa de &nbsp;</p>
-            <p className='modal-results-course-discount-green'>{discount_percentage}%</p>
+            <p className='modal-results-course-discount-green'>{Math.floor(discount_percentage)}%</p>
           </div>
           <p className='modal-results-course-price'>R${price_with_discount}/mês</p>
         </div>

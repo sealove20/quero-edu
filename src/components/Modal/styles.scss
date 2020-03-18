@@ -106,92 +106,22 @@
           }
 
           .modal-results-filters-select {
-            font-size: 16px;
+            @include common-text-style();
             padding-right: 30px;
             border: none;
             appearance: none;
             color: $primaryBlue;
             background: url('../../assets/images/angle-arrow-down (6).png') no-repeat 95% 50%;
+
+            option {
+              font-size: 18px;
+            }
           }
-        }
-      }
-      .modal-results-wrapper {
-        display: flex;
-        align-items: center;
-
-        margin: 10px 0;
-        height: 150px;
-
-        .modal-results-checkbox-wrapper {
-          display: flex;
-          align-items: center;
-          
-          .modal-results-checkbox {
-            opacity: 0;
-          }
-
-          .modal-results-checkbox-label {
-            position: relative;
-
-            margin-left: 10px;
-          }
-
-          
-        .modal-results-checkbox-label::before {
-          display: inline-block;
-          position: absolute;
-          top: 0px;
-          left: -24px;
-          
-          height: 15px;
-          width: 15px;
-
-          content: '';
-          border: 1px solid; 
-          border-radius: 3px;
-        }
-
-        .modal-results-checkbox-label::after {
-          display: inline-block;
-          position: absolute;
-          left:-21px;
-          top: 2px;
-
-          height: 6px;
-          width: 9px;
-          
-          content: '';
-          border-left: 2px solid;
-          border-bottom: 2px solid;
-          transform: rotate(-45deg);
-        }
-
-        .modal-results-checkbox + label::after  {
-          content: none;
-        }
-
-        .modal-results-checkbox:checked + label::after  {
-          content: '';
-          color: $whiteText;
-        }
-
-        .modal-results-checkbox:checked + label::before  {
-          border: 1px solid $primaryBlue;
-          background-color: $primaryBlue;
-        }
-          
-        }
-        .modal-results-university-logo {
-          height: 55px;
-          width: 120px;
-
-          margin-left: 30px;
-          margin-top: 15px;
         }
       }
       .modal-delete {
         height: 60px;
-        width: 155px;
+        width: 30%;
     
         border: 1px solid $primaryBlue;
         border-radius: 5px;
@@ -202,8 +132,8 @@
       }
     
       .modal-see {
-        height: 50px;
-        width: 220px;
+        height: 60px;
+        width: 60%;
     
         border: 1px solid $secondaryYellow;
         border-radius: 5px;
@@ -211,6 +141,55 @@
         font-weight: bold;
         background-color: $primaryYellow;
         color: $blackText;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal {
+    .modal-close-icon {
+      align-self: center;
+      margin-left: 59%;
+  
+      font-size: 40px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      color: $whiteText;
+    } 
+    
+    .modal-content {
+      width: 60%;
+
+      .modal-form {
+        .modal-form-select-container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .modal-form-kind-and-price-wrapper {
+          display: flex;
+          justify-content: space-between;
+
+          .modal-form-price-wrapper {
+            width: 50%;
+          }
+        }
+      }
+      .modal-wrapper {
+        .modal-results-filters-wrapper {
+          .modal-results-filters-select-wrapper {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 290px;
+
+            .modal-results-filters-select {
+              margin-bottom: 5px;
+            }
+          }
+        }
       }
     }
   }

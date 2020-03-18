@@ -69,8 +69,8 @@
     
   }
   .modal-results-university-logo {
-    height: 55px;
-    width: 120px;
+    height: 60px;
+    width: 140px;
 
     margin-left: 30px;
     margin-top: 15px;
@@ -117,6 +117,24 @@
 
       .modal-results-course-price {
         @include green-text-style();
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .modal-results-wrapper {
+    height: 80px;
+
+    .modal-results-info {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      width: 100%;
+
+      .modal-results-course-price-and-discount-wrapper {
+        width: 140px;
       }
     }
   }
