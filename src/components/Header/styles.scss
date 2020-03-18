@@ -62,9 +62,10 @@
     }
     
     .header-user-desktop-text {
-      margin-top: 3px;
-      font-weight: bold;
       display: none;
+
+      font-weight: bold;
+      margin-top: 3px;
     }
   }
 
@@ -98,11 +99,15 @@
     #header {
     .header-info {
       flex-direction: row;
+
       width: 500px;
+
       margin-left: 5%;
+
       .header-info-mobile-text {
         display: none;
       }
+
       .header-info-desktop-text {
         display: inline;
   
@@ -113,10 +118,12 @@
   
     .header-card-wrapper {
       display: flex;
-      height: 100%;
-      width: 20%;
       justify-content: center;
       align-items: center;
+
+      height: 100%;
+      width: 20%;
+      
       margin-left: 30px;
 
       .header-whats-icon {
@@ -135,9 +142,9 @@
         margin-left: 10px;
 
         .header-card-info-text-number {
-          @include common-text-style();
           color: $secondaryBlue;
           width: 200px;
+          @include common-text-style();
         }
 
         .header-card-info-text-message {
@@ -149,11 +156,15 @@
 
     .header-user {
       flex-direction: row;
+
       margin-right: 5%;
+
       @include middleBorder('');
+
       .header-icons {
-        font-size: 40px;
         order: 2;
+
+        font-size: 40px;
       }
       .header-user-mobile-text {
         display: none;
@@ -162,6 +173,7 @@
       .header-user-desktop-text {
         display: inline;
         order: 1;
+        
         width: 130px;
 
         margin-right: 5px;
