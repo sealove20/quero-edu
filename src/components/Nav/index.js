@@ -16,10 +16,10 @@ export default function Nav() {
       <div className='nav-current-menu-wrapper'>
         <p className='nav-current-menu'>Minha conta</p>
         <span className='nav-current-menu-desktop-wrapper'>
-          <p className='nav-current-menu-desktop'>Pré-matrículas</p>
+          <a href='#' className='nav-current-menu-desktop'>Pré-matrículas</a>
         </span>
         <span className='nav-current-menu-desktop-wrapper'>
-          <p className='nav-current-menu-desktop'>Bolsas favoritas</p>
+          <a href='#' className='nav-current-menu-desktop'>Bolsas favoritas</a>
         </span>
 
       </div>

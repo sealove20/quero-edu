@@ -1,0 +1,30 @@
+@import '../../styles/colors';
+
+.breadcrumb-container {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .breadcrumb-container {
+    display: flex;
+
+    width: 450px;
+  
+    margin-top: 40px;
+    list-style: none;
+
+    .breadcrumb-item {
+      font-weight: bold;
+      margin: 0 10px;
+      cursor: pointer;
+      color: $secondaryBlue;
+    }
+  
+    .breadcrumb-active {
+      font-weight: normal;
+      cursor: default;
+      color: $blackText;
+    }
+  }
+}
+
