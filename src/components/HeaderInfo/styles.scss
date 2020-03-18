@@ -11,12 +11,40 @@ span {
   
   color: $secondaryBlue;
 
-  p {
+  .header-info-mobile-text {
     margin-top: 3px;
     font-weight: bold;
   }
 
   .header-icons {
     font-size: 40px;
+  }
+  
+  .header-info-desktop-text {
+    margin-top: 3px;
+    font-weight: bold;
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  span {
+    flex-direction: row;
+    .header-info-mobile-text {
+      display: none;
+    }
+    .header-info-desktop-text {
+      display: inline;
+
+      font-size: 18px;
+      margin-left: 15px;
+    }
+  }
+
+  .header-card-wrapper {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }
