@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-function ActionButtons({ firstbuttonText, secondButtonText }) {
+function ActionButtons({ children }) {
   return (
     <div className='course-buttons-wrapper'>
-      <button className='course-delete-button'>{firstbuttonText}</button>
-      <button className='course-see-offert'>{secondButtonText}</button>
+      {children}
     </div>
   )
 }
 
 ActionButtons.propTypes = {
-  firstbuttonText: PropTypes.string,
-  secondButtonText: PropTypes.string
+  children: PropTypes.object,
+
 }
 
 export default ActionButtons;

@@ -66,7 +66,10 @@ function Modal({ isModalOpen, closeModal }) {
             <HorizontalLine />
           </> 
           ))}
-          <ActionButtons firstbuttonText='Cancelar' secondButtonText='Adicionar bolsa(s)' />
+          <ActionButtons firstbuttonText='Cancelar' secondButtonText='Adicionar bolsa(s)'>
+            <button className='modal-delete'>Cancelar</button>
+            <button className='modal-see'>Adicionar bolsa(s)</button>
+          </ActionButtons>
         </div>
       </div>
     </div>

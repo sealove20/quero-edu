@@ -34,14 +34,16 @@ function App() {
         <h1 className="main-title">Bolsas favoritas</h1>
         <p className="main-text">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis</p>
         <TabMenu />
-        <Card>
-          <ModalButton openModal={toggleModal} />
-        </Card>
-        {filter.map(course => (
+        <div className='card-container'>
           <Card>
-            <CourseCard item={course} />
+            <ModalButton openModal={toggleModal} />
           </Card>
-        ))}
+          {courses.map(course => (
+            <Card>
+              <CourseCard item={course} />
+            </Card>
+          ))}
+        </div>
         <Modal isModalOpen={isModalOpen} closeModal={toggleModal} />
       </main>
       <Footer />

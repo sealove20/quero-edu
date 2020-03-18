@@ -11,8 +11,17 @@
 
   margin: 30px 0;
 
-  .course-university-logo {
-    margin-bottom: 15px;
+  .course-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 250px;
+    height: 120px;
+
+    .course-university-logo {
+      margin-bottom: 15px;
+    }
   }
   
   .course-name-and-university-name-wrapper {
@@ -148,4 +157,57 @@
     border-radius: 5px;
     background-color: rgba(66, 66, 66, 0.1);
   }
+  .course-delete {
+    height: 60px;
+    width: 30%;
+
+    border: 1px solid $primaryBlue;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: transparent;
+    color: $secondaryBlue;
+  }
+  
+  .course-see {
+    height: 60px;
+    width: 60%;
+
+    border: 1px solid $secondaryYellow;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: $primaryYellow;
+    color: $blackText;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .course-container {
+    .course-delete {
+      height: 40px;
+      width: 35%;
+  
+      border: 1px solid $primaryBlue;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: transparent;
+      color: $secondaryBlue;
+    }
+  
+    .course-see {
+      height: 40px;
+      width: 60%;
+  
+      border: 1px solid $secondaryYellow;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: $primaryYellow;
+      color: $blackText;
+    }
+  }
+
 }

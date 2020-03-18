@@ -189,6 +189,29 @@
           margin-top: 15px;
         }
       }
+      .modal-delete {
+        height: 60px;
+        width: 155px;
+    
+        border: 1px solid $primaryBlue;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: transparent;
+        color: $secondaryBlue;
+      }
+    
+      .modal-see {
+        height: 50px;
+        width: 220px;
+    
+        border: 1px solid $secondaryYellow;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: $primaryYellow;
+        color: $blackText;
+      }
     }
   }
 }

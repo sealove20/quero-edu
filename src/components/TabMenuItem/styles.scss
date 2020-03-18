@@ -29,7 +29,8 @@
 @media screen and (min-width: 1024px) { 
   .tab-menu-item {
     height: 40px;
-    width: 250px;
+    width: 230px;
+    cursor: pointer;
   }
 
   .tab-menu-item:nth-child(2) {
