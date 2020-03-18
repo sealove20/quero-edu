@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export default function FooterCard({ iconName, cardTitle, cardText, shortText }) {
+function FooterCard({ iconName, cardTitle, cardText, shortText }) {
   return (
     <div className='container'>
       <div className='footer-wrapper'>        
@@ -19,3 +20,11 @@ export default function FooterCard({ iconName, cardTitle, cardText, shortText })
   )
 }
 
+FooterCard.propTypes = {
+  iconName: PropTypes.object, 
+  cardTitle: PropTypes.string, 
+  cardText: PropTypes.string, 
+  shortText: PropTypes.string
+}
+
+export default FooterCard;

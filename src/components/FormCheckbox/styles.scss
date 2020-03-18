@@ -1,0 +1,53 @@
+@import '../../styles/colors';
+
+.modal-form-checkbox {
+  opacity: 0;
+}
+
+.modal-form-checkbox-label::before {
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  left:-24px;
+
+  height: 15px;
+  width: 15px;
+  
+  content: '';
+  border: 1px solid; 
+  border-radius: 3px;
+}
+
+.modal-form-checkbox-label::after {
+  display: inline-block;
+  position: absolute;
+  left:-21px;
+  top: 5px;
+
+  height: 6px;
+  width: 9px;
+
+  content: '';
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+}
+
+.modal-form-checkbox + label::after {
+  content: none;
+}
+
+.modal-form-checkbox:checked + label::after {
+  content: '';
+  color: $whiteText;
+}
+
+.modal-form-checkbox:checked + label::before {
+  background-color: $primaryBlue;
+  border: 1px solid $primaryBlue;
+}
+
+.modal-form-checkbox-label {
+  position: relative;
+  font-size: 18px;
+}

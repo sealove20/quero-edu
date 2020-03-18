@@ -4,19 +4,19 @@ import './App.scss';
 
 import { useCourses } from './context/Courses';
 
-import Header from './components/Header';
-import Nav from './components/Nav';
 import BackButton from './components/BackButton';
-import TabMenu from './components/TabMenu';
 import Card from './components/Card';
+import CourseCard from './components/CourseCard';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import Modal from './components/Modal';
 import ModalButton from './components/ModalButton';
-import CourseCard from './components/CourseCard';
+import Nav from './components/Nav';
+import TabMenu from './components/TabMenu';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { courses, setCourses } = useCourses();
+  const { courses } = useCourses();
   const filter = courses.filter(course => course.enrollment_semester === "2020.1")
 
   function toggleModal() {
@@ -37,10 +37,10 @@ function App() {
         </Card>
         {filter.map(course => (
           <Card>
-            <CourseCard course={course} />
+            <CourseCard item={course} />
           </Card>
         ))}
-       <Modal  isModalOpen={isModalOpen} closeModal={toggleModal} />
+        <Modal isModalOpen={isModalOpen} closeModal={toggleModal} />
       </main>
       <Footer />
     </>

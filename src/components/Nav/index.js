@@ -10,6 +10,7 @@ export default function Nav() {
   function toggleDropDown() {
     setIsDropDownOpen(!isDropDownOpen);
   }
+  
   return (
     <nav className='nav-container' data-test='nav-component'>
       <p className='nav-current-menu'>Minha conta</p>

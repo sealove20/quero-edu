@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
 
@@ -6,7 +7,7 @@ import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import starOff from '../../assets/images/star-regular.svg';
 
-export default function Stars({ totalStars, score }) {
+function Stars({ totalStars, score }) {
   const intPart = Math.floor(score);
   let decimalPart = score - Math.floor(score);
 
@@ -23,5 +24,12 @@ export default function Stars({ totalStars, score }) {
         }
       })}
     </>
-  )
+  );
 }
+
+Stars.propTypes = {
+  totalStars: PropTypes.number, 
+  score: PropTypes.number
+}
+
+export default Stars;

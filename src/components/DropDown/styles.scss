@@ -27,15 +27,16 @@
   background-color: $primaryBlue;
 
   .dropdown-button-text {
-    @include nav-text-style();
     letter-spacing: 1.5px;
+    color: $whiteText;
+    @include common-text-style();
   }
 }
 
 .dropdown-icon {
   margin-top: 4px;
-
-  @include nav-text-style();
+  color: $whiteText;
+  @include common-text-style();
 }
 
 .dropdown-content {
@@ -55,8 +56,9 @@
   letter-spacing: 1.5px;
   margin-top: 25px;
   animation: dropdownAnimation 0.25s ease-out;
-  @include nav-text-style();
+  color: $whiteText;
   background-color: $primaryBlue;
+  @include common-text-style();
 
   li {
     height: 35px;

@@ -30,6 +30,8 @@ function DropDown({ toggleDropDown,  isDropDownOpen, text, items }) {
 DropDown.propTypes = {
   toggleDropDown: PropTypes.func,
   isDropDownOpen: PropTypes.bool,
+  text: PropTypes.string, 
+  items: PropTypes.array
 }
 
 export default DropDown;

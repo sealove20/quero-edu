@@ -7,6 +7,8 @@ import DropDown from './';
 const defaultProps = {
   toggleDropDown: () => {},
   isDropDownOpen: false,
+  text: 'Menu', 
+  items: ['Sair', 'Entrar']
 };
 
 const setup = (props = {}) => {

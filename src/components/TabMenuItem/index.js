@@ -5,7 +5,7 @@ import './styles.scss'
 
 function TabMenuItem({ text, onClick, value, active }) {
   return (
-    <div className={`tab-menu-item ${active === value ? "active" : ""}`} onClick={onClick} data-value={value}> 
+    <div className={`tab-menu-item ${active === value ? 'active' : ''}`} onClick={onClick} data-value={value}> 
       <p className='tab-menu-text'>{text}</p>
     </div>
   );

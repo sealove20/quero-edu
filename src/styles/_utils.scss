@@ -6,8 +6,13 @@
     no-repeat $side/4px 75%;
 }
 
-@mixin nav-text-style() {
+@mixin common-text-style() {
   font-weight: bold;
-  font-size: 20px;
-  color: $whiteText;
+  font-size: 18px;
+}
+
+@mixin green-text-style() {
+  font-size: 18px;
+  font-weight: bold;
+  color: $green;
 }

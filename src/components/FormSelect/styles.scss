@@ -1,0 +1,23 @@
+.modal-form-select-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  margin: 25px 0;
+
+  .modal-form-select-label {
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  .modal-form-select {
+    height: 70px;
+
+    appearance: none;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(66, 66, 66, 0.3);
+    background: url('../../assets/images/angle-arrow-down (5).png') no-repeat 95% 50%;
+  }
+}
