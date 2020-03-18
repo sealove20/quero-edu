@@ -17,4 +17,52 @@
     color: $whiteText;
     @include common-text-style();
   }
+
+  .nav-current-menu-desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) { 
+  .nav-container {
+    .nav-current-menu-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      height: 100%;
+      width: 480px;
+
+      margin-left: 5%;
+
+      .nav-current-menu {
+        width: 100%
+      }
+
+      .nav-current-menu {
+        font-size: 22px;
+      }
+
+      .nav-current-menu-desktop-wrapper {
+        height: 100%;
+        width: 100%;
+
+        .nav-current-menu-desktop {
+          display: inline;
+          
+          color: $whiteText;
+          @include common-text-style();
+        }
+      }
+      .nav-current-menu-desktop-wrapper:hover { 
+        background-color: $secondaryBlue;
+      }
+
+      .nav-current-menu-desktop-wrapper:nth-child(3) {
+        background-color: $secondaryBlue;
+      }
+    }
+
+
+  }
 }

@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function DropDown({ toggleDropDown,  isDropDownOpen, text, items }) {
   return (
-    <div data-test='dropdown-component'>
+    <div className='dropdown' data-test='dropdown-component'>
       <button className='dropdown-button' onClick={toggleDropDown} data-test='dropdown-button'>
         <p className='dropdown-button-text'>{text}</p>
         <FontAwesomeIcon
