@@ -11,7 +11,9 @@ function ResultCard({ index, item }) {
   return (
     <div className='modal-results-wrapper'>
       <ResultCardCheckbox index={index} />
-      <img src={logo_url} alt="logo" className='modal-results-university-logo'/>
+      <div className='modal-results-university-logo-wrapper'>
+        <img src={logo_url} alt="logo" className='modal-results-university-logo'/>
+      </div>
       <div className='modal-results-info'>
         <div className='modal-results-course-name-and-level-wrapper'>
           <p className='modal-results-course-name'>{name}</p>

@@ -10,7 +10,7 @@ function FormSelect({ label, items, handleSelectChange }) {
       <select name='city' id='cities' className='modal-form-select' onChange={(event) => handleSelectChange(event)}>
         <option value='all'></option>
         {items.map((item, index) => (
-          <option key={index} value={item}>{item}</option>
+          <option key={item} value={item}>{item}</option>
         ))}
       </select>
     </div>
@@ -19,7 +19,8 @@ function FormSelect({ label, items, handleSelectChange }) {
 
 FormSelect.propTypes = {
   label: PropTypes.string, 
-  items: PropTypes.array
+  items: PropTypes.array,
+  handleSelectChange: PropTypes.func
 }
 
 export default FormSelect;

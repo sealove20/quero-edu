@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-import { useCourses } from '../../context/Courses'; 
+import { useScholarships } from '../../context/Scholarships'; 
 
 import FormSelect from '../FormSelect';
 import FormCheckbox from '../FormCheckbox';
@@ -16,23 +16,44 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Modal({ isModalOpen, closeModal }) {
-  const { courses } = useCourses();
+  const { scholarships, filterByCity, filterByCourse } = useScholarships();
   const [value, setValue] = useState(20000);
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('all');
+  const [course, setCourse] = useState('all');
+  const [filteredScholarships, setFilteredScholarships] = useState(scholarships);
 
-  const filter = courses.filter(course => course.course.kind === 'EaD');
+  const filters = {
+    city: 'all',
+    course: 'all'
+  }
 
-  const cities = [... new Set(courses.map(course => course.campus.city))];
+  useEffect(() => {
+    let result = filterByCity(scholarships, city);
+    console.log('111111111', result);
+    result = filterByCourse(result, course);
+    console.log('222222222222222',result);
+    setFilteredScholarships(result);
+  }, [city, course]);
 
-  const coursesNames = ['Ciências Contábeis', 'Ciências da computação'];
+  // useEffect(() => {
+  //   course === 'all' 
+  //   ? setFilteredScholarships(scholarships)
+  //   : setFilteredScholarships(scholarships.filter(scholarship => scholarship.course.name === course));
+  // }, [course]);
+
+  const cities = [...new Set(scholarships.map(course => course.campus.city))];
+  const courses = [...new Set(scholarships.map(course => course.course.name))];
 
   function handlePrice(event) {
     setValue(event.target.value)
   }
 
-  function handleSelectChange(event) {
+  function handleSelectCiTyChange(event) {
     setCity(event.target.value);
-    console.log(city);
+  }
+
+  function handleSelectCourseChange(event) {
+    setCourse(event.target.value);
   }
 
   if(!isModalOpen) return null
@@ -45,8 +66,8 @@ function Modal({ isModalOpen, closeModal }) {
           <p className='modal-header-text'>Filtre e adicione as bolsas de seu interesse.</p>
           <form className='modal-form'>
             <div className='modal-form-select-container'>
-              <FormSelect label='SELECIONE SUA CIDADE' items={cities} handleSelectChange={handleSelectChange}/>
-              <FormSelect label='SELECIONE O CURSO DE SUA PREFERÊNCIA' items={coursesNames} />
+              <FormSelect label='SELECIONE SUA CIDADE' items={cities} handleSelectChange={handleSelectCiTyChange}/>
+              <FormSelect label='SELECIONE O CURSO DE SUA PREFERÊNCIA' items={courses} handleSelectChange={handleSelectCourseChange}/>
             </div>
             <div className='modal-form-kind-and-price-wrapper'>
               <div className='modal-form-kind-wrapper'>
@@ -74,7 +95,7 @@ function Modal({ isModalOpen, closeModal }) {
             </div>
           </div>
           <HorizontalLine />
-          {filter.map((course, index) => (
+          {filteredScholarships.map((course, index) => (
           <>
             <ResultCard key={index} index={index} item={course} />
             <HorizontalLine />

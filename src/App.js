@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './App.scss';
 
-import { useCourses } from './context/Courses';
+import { useScholarships } from './context/Scholarships';
 
 import BackButton from './components/BackButton';
 import BreadCrumb from './components/BreadCrumb';
@@ -17,8 +17,8 @@ import TabMenu from './components/TabMenu';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { courses } = useCourses();
-  const filter = courses.filter(course => course.enrollment_semester === "2020.1")
+  const { scholarships } = useScholarships();
+  const filter = scholarships.filter(course => course.enrollment_semester === "2020.1")
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen)
@@ -38,7 +38,7 @@ function App() {
           <Card>
             <ModalButton openModal={toggleModal} />
           </Card>
-          {courses.map(course => (
+          {scholarships.map(course => (
             <Card>
               <CourseCard item={course} />
             </Card>

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-import { CoursesProvider } from './context/Courses'
+import { ScholarshipsProvider } from './context/Scholarships';
 
 ReactDOM.render(
-  <CoursesProvider>
+  <ScholarshipsProvider>
     <App />
-  </CoursesProvider>, 
+  </ScholarshipsProvider>, 
   document.getElementById('root')
 );
