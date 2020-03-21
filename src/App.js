@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import './App.scss';
 
-import { useScholarships } from './context/Scholarships';
 import { useFavoritesScholarships } from './context/FavoritesScholarships';
-
 
 import BackButton from './components/BackButton';
 import BreadCrumb from './components/BreadCrumb';
@@ -18,7 +16,7 @@ import Nav from './components/Nav';
 import TabMenu from './components/TabMenu';
 
 function App() {
-  const { favoritesScholarships, filterBySemester } = useFavoritesScholarships();
+  const { favoritesScholarships, filterBySemester, getFavoritesStorage } = useFavoritesScholarships();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredScholarships, setFilteredScholarships] = useState(favoritesScholarships);

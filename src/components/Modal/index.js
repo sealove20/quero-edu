@@ -32,7 +32,7 @@ function Modal({ isModalOpen, closeModal }) {
   } = useScholarships();
   
   const {
-    favoritesScholarships, setFavoritesScholarships 
+    favoritesScholarships, setFavoritesScholarships, setFavoritesStorage 
   } = useFavoritesScholarships();
   
   const [price, setPrice] = useState(20000);
@@ -42,7 +42,7 @@ function Modal({ isModalOpen, closeModal }) {
   const [remote, setRemote] = useState(true);
   const [sortScholarship, setSortScholarship] = useState('university');
   const [filteredScholarships, setFilteredScholarships] = useState(scholarships);
-  const [modalFavoriteScholarships, setModalFavoriteScholarships] = useState([]);
+  const [modalFavoriteScholarships, setModalFavoriteScholarships] = useState(favoritesScholarships);
 
   const cities = [...new Set(scholarships.map(course => course.campus.city))];
   const courses = [...new Set(scholarships.map(course => course.course.name))];
@@ -63,6 +63,8 @@ function Modal({ isModalOpen, closeModal }) {
     } else if(sortScholarship === 'price') {
       result = result.sort(sortPrice);
     }
+
+    setModalFavoriteScholarships(favoritesScholarships);
 
     const favorites = JSON.stringify(favoritesScholarships);
     result = result.filter(filteredScholarship => {
@@ -123,6 +125,7 @@ function Modal({ isModalOpen, closeModal }) {
 
   function addFavouriteScholarships() {
     setFavoritesScholarships(modalFavoriteScholarships);
+    setFavoritesStorage(modalFavoriteScholarships);
     closeModal();
   }
 
