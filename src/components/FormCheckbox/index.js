@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-function FormCheckBox({ title, name, id, labelId }) {
+function FormCheckBox({ title, name, id, labelId, handleCheckboxChange, checked }) {
   return (
     <>
-      <input type='checkbox' name={name} id={id} className='modal-form-checkbox'/>
+      <input 
+        type='checkbox' 
+        name={name} 
+        id={id} 
+        className='modal-form-checkbox' 
+        defaultChecked={checked} 
+        onChange={() => handleCheckboxChange()}
+      />
       <label htmlFor={labelId} className='modal-form-checkbox-label'>
         {title}
       </label>

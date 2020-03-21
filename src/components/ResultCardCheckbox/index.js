@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-function ResultCardCheckbox({ index }) {
+function ResultCardCheckbox({ item, handleCheckbox }) {
   return (
     <div className='modal-results-checkbox-wrapper'>
-      <input type="checkbox" id={index}  className='modal-results-checkbox'/>
-      <label htmlFor={index} className='modal-results-checkbox-label'></label>
+      <input type='checkbox' className='modal-results-checkbox' onChange={(event) => handleCheckbox(event, item)}/>
+      <label className='modal-results-checkbox-label'></label>
     </div>
   );
 }

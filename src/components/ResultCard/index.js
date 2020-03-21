@@ -5,12 +5,12 @@ import './styles.scss';
 
 import ResultCardCheckbox from '../ResultCardCheckbox';
 
-function ResultCard({ index, item }) {
+function ResultCard({ item, handleCheckboxFavouriteScholarshipChange }) {
   const { university : {logo_url}, course : { name, level}, discount_percentage, price_with_discount } = item;
 
   return (
     <div className='modal-results-wrapper'>
-      <ResultCardCheckbox index={index} />
+      <ResultCardCheckbox  item={item} handleCheckbox={handleCheckboxFavouriteScholarshipChange}/>
       <div className='modal-results-university-logo-wrapper'>
         <img src={logo_url} alt="logo" className='modal-results-university-logo'/>
       </div>
@@ -32,7 +32,6 @@ function ResultCard({ index, item }) {
 }
 
 ResultCard.propTypes = {
-  index: PropTypes.number, 
   item: PropTypes.object
 }
 

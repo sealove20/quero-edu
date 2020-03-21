@@ -4,7 +4,16 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
   width: 100%;
 
   margin: 20px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .course-buttons-wrapper {
+    justify-content: flex-end;
+    
+    width: 100%;
+  }
 }

@@ -34,6 +34,7 @@
     font-size: 40px;
     margin-right: 20px;
     margin-bottom: 20px;
+    cursor: pointer;
     color: $whiteText;
   } 
 
@@ -119,7 +120,7 @@
           }
         }
       }
-      .modal-delete {
+      .modal-cancel {
         height: 60px;
         width: 30%;
     
@@ -127,11 +128,12 @@
         border-radius: 5px;
         font-size: 18px;
         font-weight: bold;
+        cursor: pointer;
         background-color: transparent;
         color: $secondaryBlue;
       }
     
-      .modal-see {
+      .modal-add {
         height: 60px;
         width: 60%;
     
@@ -139,6 +141,7 @@
         border-radius: 5px;
         font-size: 18px;
         font-weight: bold;
+        cursor: pointer;
         background-color: $primaryYellow;
         color: $blackText;
       }
@@ -148,6 +151,7 @@
 
 @media screen and (min-width: 1024px) {
   .modal {
+    padding-top: 100px;
     .modal-close-icon {
       align-self: center;
       margin-left: 59%;
@@ -189,6 +193,17 @@
               margin-bottom: 5px;
             }
           }
+        }
+        .modal-cancel {
+          height: 50px;
+          width: 150px;
+          
+          margin-right: 25px;
+        }
+      
+        .modal-add {
+          height: 50px;
+          width: 200px;
         }
       }
     }

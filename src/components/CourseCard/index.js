@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 
 import './styles.scss'
 
+import { useFavoritesScholarships } from '../../context/FavoritesScholarships';
+
 import ActionButtons from '../ActionButtons';
 import Star from '../Stars'
 
 function CourseCard({ item }) {
+  const { removeFavorite } = useFavoritesScholarships();
   const { 
     university: { logo_url, name: universityName, score }, 
     course: { name: courseName, kind, shift }, start_date, full_price, price_with_discount} = item;
@@ -39,8 +42,8 @@ function CourseCard({ item }) {
           <p className='course-price-text'> {`/mês`} </p>
         </div>
       </div>
-      <ActionButtons>
-        <button className='course-delete'>Excluir</button>
+      <ActionButtons className='course-buttons-wrapper'>
+        <button className='course-delete' onClick={() => removeFavorite(item)}>Excluir</button>
         <button className='course-see'>Ver Oferta</button>
       </ActionButtons>
     </div>

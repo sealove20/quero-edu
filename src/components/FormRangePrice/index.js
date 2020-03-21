@@ -16,7 +16,7 @@ function FormRangePrice({ value, handlePrice, min, max }) {
         id='prices' 
         min={min} max={max}
         value={value}
-        onChange={e => handlePrice(e)}
+        onChange={event => handlePrice(event)}
         className='modal-form-range'
       />
     </>

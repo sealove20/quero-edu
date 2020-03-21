@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import './styles.scss';
 
-function FormSelect({ label, items, handleSelectChange }) {
+function FormSelect({ label, items, handleSelectChange, name, id, labelId }) {
   return (
     <div className='modal-form-select-wrapper'>
-      <label htmlFor='cities' className='modal-form-select-label'>{label}</label>
-      <select name='city' id='cities' className='modal-form-select' onChange={(event) => handleSelectChange(event)}>
+      <label htmlFor={labelId} className='modal-form-select-label'>{label}</label>
+      <select name={name} id={id} className='modal-form-select' onChange={event => handleSelectChange(event)}>
         <option value='all'></option>
-        {items.map((item, index) => (
+        {items.map(item => (
           <option key={item} value={item}>{item}</option>
         ))}
       </select>

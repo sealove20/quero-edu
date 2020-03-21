@@ -125,28 +125,6 @@
     width: 100%;
 
     margin-top: 10px;
-  
-    .course-delete-button {
-      height: 60px;
-      width: 155px;
-
-      border: 1px solid $primaryBlue;
-      border-radius: 5px;
-      background-color: transparent;
-      color: $secondaryBlue;
-      @include common-text-style();
-    }
-    
-    .course-see-offert {
-      height: 60px;
-      width: 220px;
-
-      border: 1px solid $secondaryYellow;
-      border-radius: 5px;
-      background-color: $primaryYellow;
-      color: $blackText;
-      @include common-text-style();
-    }
   }
 
   .horizontal-line {
@@ -165,6 +143,7 @@
     border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
+    cursor: pointer;
     background-color: transparent;
     color: $secondaryBlue;
   }
@@ -177,6 +156,7 @@
     border-radius: 5px;
     font-size: 18px;
     font-weight: bold;
+    cursor: pointer;
     background-color: $primaryYellow;
     color: $blackText;
   }

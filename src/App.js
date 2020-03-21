@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import './App.scss';
 
 import { useScholarships } from './context/Scholarships';
+import { useFavoritesScholarships } from './context/FavoritesScholarships';
+
 
 import BackButton from './components/BackButton';
 import BreadCrumb from './components/BreadCrumb';
@@ -16,9 +18,16 @@ import Nav from './components/Nav';
 import TabMenu from './components/TabMenu';
 
 function App() {
+  const { favoritesScholarships, filterBySemester } = useFavoritesScholarships();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { scholarships } = useScholarships();
-  const filter = scholarships.filter(course => course.enrollment_semester === "2020.1")
+  const [filteredScholarships, setFilteredScholarships] = useState(favoritesScholarships);
+  const [semester, setSemester] = useState('all');
+
+  useEffect(() => {
+    const result = filterBySemester(favoritesScholarships, semester);
+    setFilteredScholarships(result);
+  }, [semester, favoritesScholarships])
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen)
@@ -33,14 +42,14 @@ function App() {
         <BreadCrumb />
         <h1 className="main-title">Bolsas favoritas</h1>
         <p className="main-text">Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis</p>
-        <TabMenu />
+        <TabMenu setSemester={setSemester} semester={semester}/>
         <div className='card-container'>
           <Card>
             <ModalButton openModal={toggleModal} />
           </Card>
-          {scholarships.map(course => (
+          {filteredScholarships.map((course, index) => (
             <Card>
-              <CourseCard item={course} />
+              <CourseCard key={index} item={course} />
             </Card>
           ))}
         </div>

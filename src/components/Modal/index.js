@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 import { useScholarships } from '../../context/Scholarships'; 
+import { useFavoritesScholarships } from '../../context/FavoritesScholarships';
+import { compareObjects } from '../../utils/compareObjects'; 
 
 import FormSelect from '../FormSelect';
 import FormCheckbox from '../FormCheckbox';
@@ -16,37 +18,75 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Modal({ isModalOpen, closeModal }) {
-  const { scholarships, filterByCity, filterByCourse } = useScholarships();
-  const [value, setValue] = useState(20000);
+  const { 
+    scholarships, 
+    filterByCity, 
+    filterByCourse, 
+    filterByPresential,
+    filterByRemote,
+    filterByPrice,
+    sortUniversityName,
+    sortCourseName,
+    sortPrice
+    
+  } = useScholarships();
+  
+  const {
+    favoritesScholarships, setFavoritesScholarships 
+  } = useFavoritesScholarships();
+  
+  const [price, setPrice] = useState(20000);
   const [city, setCity] = useState('all');
   const [course, setCourse] = useState('all');
+  const [presential, setPresential] = useState(true);
+  const [remote, setRemote] = useState(true);
+  const [sortScholarship, setSortScholarship] = useState('university');
   const [filteredScholarships, setFilteredScholarships] = useState(scholarships);
-
-  const filters = {
-    city: 'all',
-    course: 'all'
-  }
-
-  useEffect(() => {
-    let result = filterByCity(scholarships, city);
-    console.log('111111111', result);
-    result = filterByCourse(result, course);
-    console.log('222222222222222',result);
-    setFilteredScholarships(result);
-  }, [city, course]);
-
-  // useEffect(() => {
-  //   course === 'all' 
-  //   ? setFilteredScholarships(scholarships)
-  //   : setFilteredScholarships(scholarships.filter(scholarship => scholarship.course.name === course));
-  // }, [course]);
+  const [modalFavoriteScholarships, setModalFavoriteScholarships] = useState([]);
 
   const cities = [...new Set(scholarships.map(course => course.campus.city))];
   const courses = [...new Set(scholarships.map(course => course.course.name))];
 
-  function handlePrice(event) {
-    setValue(event.target.value)
-  }
+  //applyFilters
+  useEffect(() => {
+    let result = filterByCity(scholarships, city);
+
+    result = filterByCourse(result, course);
+    result = filterByPresential(result, presential);
+    result = filterByRemote(result, remote);
+    result = filterByPrice(result, price);
+
+    if(sortScholarship === 'university') {
+      result = result.sort(sortUniversityName);
+    } else if(sortScholarship === 'course') {
+      result = result.sort(sortCourseName);
+    } else if(sortScholarship === 'price') {
+      result = result.sort(sortPrice);
+    }
+
+    const favorites = JSON.stringify(favoritesScholarships);
+    result = result.filter(filteredScholarship => {
+      return !favorites.includes(JSON.stringify(filteredScholarship));
+    });
+    setFilteredScholarships(result);
+  }, [city, course, presential, remote, price, sortScholarship, favoritesScholarships]);
+
+  //modalReset
+  useEffect(() => {
+    setCity('all');
+    setCourse('all');
+    setPresential(true);
+    setRemote(true);
+    setPrice(20000);
+
+    if(favoritesScholarships.length) {
+      const favorites = JSON.stringify(favoritesScholarships);
+      const duplicateFavorites = filteredScholarships.filter(filteredScholarship => {
+        return !favorites.includes(JSON.stringify(filteredScholarship));
+      });
+      setFilteredScholarships(duplicateFavorites);
+    };
+  }, [isModalOpen]);
 
   function handleSelectCiTyChange(event) {
     setCity(event.target.value);
@@ -54,6 +94,36 @@ function Modal({ isModalOpen, closeModal }) {
 
   function handleSelectCourseChange(event) {
     setCourse(event.target.value);
+  }
+  
+  function handleSelectSortChange(event) {
+    setSortScholarship(event.target.value);
+  }
+
+  function handleCheckBoxPresentialChange() {
+    setPresential(!presential);
+  }
+
+  function handleCheckBoxRemoteChange() {
+    setRemote(!remote);
+  }
+
+  function handlePrice(event) {
+    setPrice(event.target.value);
+  }
+
+  function handleCheckboxFavouriteScholarshipChange(event, favorite) {
+    if(event.target.checked) {
+      setModalFavoriteScholarships([...modalFavoriteScholarships, favorite]);
+    } else {
+      const removeFavorite = modalFavoriteScholarships.filter(modalFavorite => !compareObjects(modalFavorite, favorite ))
+      setModalFavoriteScholarships(removeFavorite);
+    }
+  }
+
+  function addFavouriteScholarships() {
+    setFavoritesScholarships(modalFavoriteScholarships);
+    closeModal();
   }
 
   if(!isModalOpen) return null
@@ -66,19 +136,46 @@ function Modal({ isModalOpen, closeModal }) {
           <p className='modal-header-text'>Filtre e adicione as bolsas de seu interesse.</p>
           <form className='modal-form'>
             <div className='modal-form-select-container'>
-              <FormSelect label='SELECIONE SUA CIDADE' items={cities} handleSelectChange={handleSelectCiTyChange}/>
-              <FormSelect label='SELECIONE O CURSO DE SUA PREFERÊNCIA' items={courses} handleSelectChange={handleSelectCourseChange}/>
+              <FormSelect 
+                name={'city'}
+                id={'cities'}
+                labelId={'cities'}
+                label='SELECIONE SUA CIDADE' 
+                items={cities} 
+                handleSelectChange={handleSelectCiTyChange}
+              />
+              <FormSelect 
+                name={'course'}
+                id={'courses'}
+                labelId={'courses'}
+                label='SELECIONE O CURSO DE SUA PREFERÊNCIA' 
+                items={courses} 
+                handleSelectChange={handleSelectCourseChange}/>
             </div>
             <div className='modal-form-kind-and-price-wrapper'>
               <div className='modal-form-kind-wrapper'>
                 <p className='modal-form-kind-text'>COMO VOCÊ QUER ESTUDAR?</p>
                 <div className='modal-form-kind-checkbox-wrapper'>
-                  <FormCheckbox title='Presencial' name='presencial' id='presencial' labelId='presencial'/>
-                  <FormCheckbox title='A distância' name='ead' id='ead' labelId='ead'/>
+                  <FormCheckbox 
+                    title='Presencial' 
+                    name='presencial' 
+                    id='presencial' 
+                    labelId='presencial' 
+                    checked={presential} 
+                    handleCheckboxChange={handleCheckBoxPresentialChange}
+                  />
+                  <FormCheckbox 
+                    title='A distância' 
+                    name='ead' 
+                    id='ead' 
+                    labelId='ead'                     
+                    checked={remote} 
+                    handleCheckboxChange={handleCheckBoxRemoteChange}
+                  />
                 </div>
               </div>
               <div className='modal-form-price-wrapper'>
-                <FormRangePrice value={value} handlePrice={handlePrice} min='0' max='10000' />
+                <FormRangePrice value={price} handlePrice={handlePrice} min='0' max='20000' />
               </div>
             </div>
 
@@ -87,7 +184,7 @@ function Modal({ isModalOpen, closeModal }) {
             <p className='modal-results-filters-text'>Resultado:</p>
             <div className='modal-results-filters-select-wrapper'>
               <label htmlFor='order-by' className='modal-results-filters-select-label'>Ordenar por</label>
-              <select name='order' id='order-by' className='modal-results-filters-select'>
+              <select name='order' id='order-by' className='modal-results-filters-select' onChange={event => handleSelectSortChange(event)}>
                 <option value='university'>Nome da faculdade</option>
                 <option value='course'>Nome do curso</option>
                 <option value='price'>Preço</option>
@@ -97,13 +194,17 @@ function Modal({ isModalOpen, closeModal }) {
           <HorizontalLine />
           {filteredScholarships.map((course, index) => (
           <>
-            <ResultCard key={index} index={index} item={course} />
+            <ResultCard 
+              key={index} 
+              item={course} 
+              handleCheckboxFavouriteScholarshipChange={handleCheckboxFavouriteScholarshipChange}
+            />
             <HorizontalLine />
           </> 
           ))}
           <ActionButtons firstbuttonText='Cancelar' secondButtonText='Adicionar bolsa(s)'>
-            <button className='modal-delete'>Cancelar</button>
-            <button className='modal-see'>Adicionar bolsa(s)</button>
+            <button className='modal-cancel' onClick={() => closeModal()}>Cancelar</button>
+            <button className='modal-add' onClick={() => addFavouriteScholarships()} >Adicionar bolsa(s)</button>
           </ActionButtons>
         </div>
       </div>
