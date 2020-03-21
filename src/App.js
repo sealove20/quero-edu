@@ -16,7 +16,7 @@ import Nav from './components/Nav';
 import TabMenu from './components/TabMenu';
 
 function App() {
-  const { favoritesScholarships, filterBySemester, getFavoritesStorage } = useFavoritesScholarships();
+  const { favoritesScholarships, filterBySemester } = useFavoritesScholarships();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filteredScholarships, setFilteredScholarships] = useState(favoritesScholarships);
@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     const result = filterBySemester(favoritesScholarships, semester);
     setFilteredScholarships(result);
-  }, [semester, favoritesScholarships])
+  }, [semester, favoritesScholarships]);
 
   function toggleModal() {
     setIsModalOpen(!isModalOpen)
@@ -45,9 +45,9 @@ function App() {
           <Card>
             <ModalButton openModal={toggleModal} />
           </Card>
-          {filteredScholarships.map((course, index) => (
-            <Card>
-              <CourseCard key={index} item={course} />
+          {filteredScholarships.map((course) => (
+            <Card key={`${course.course.name}${course.university.name}CARD`}>
+              <CourseCard key={`${course.course.name}${course.university.name}`} item={course} />
             </Card>
           ))}
         </div>

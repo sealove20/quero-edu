@@ -16,12 +16,11 @@ export default function Nav() {
       <div className='nav-current-menu-wrapper'>
         <p className='nav-current-menu'>Minha conta</p>
         <span className='nav-current-menu-desktop-wrapper'>
-          <a href='#' className='nav-current-menu-desktop'>Pré-matrículas</a>
+          <p className='nav-current-menu-desktop'>Pré-matrículas</p>
         </span>
         <span className='nav-current-menu-desktop-wrapper'>
-          <a href='#' className='nav-current-menu-desktop'>Bolsas favoritas</a>
+          <p className='nav-current-menu-desktop'>Bolsas favoritas</p>
         </span>
-
       </div>
       <DropDown toggleDropDown={toggleDropDown} isDropDownOpen={isDropDownOpen} text={'Menu'} items={['Pré-matrículas','Bolsas Favoritas']}/>
     </nav>

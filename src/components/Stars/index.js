@@ -7,20 +7,20 @@ import { faStarHalfAlt, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import starOff from '../../assets/images/star-regular.svg';
 
-function Stars({ totalStars, score }) {
+function Stars({ totalStars, score, item }) {
   const intPart = Math.floor(score);
   let decimalPart = score - Math.floor(score);
 
   return (
     <>
-      {[... Array(totalStars)].map((n, i) => {
+      {[...Array(totalStars)].map((n, i) => {
         if (i + 1 <= intPart) {
-          return <FontAwesomeIcon key={i} icon={faStar} className='star' swapOpacity />
+          return <FontAwesomeIcon key={`${item.course.name}${item.university.name}${i}`} icon={faStar} className='star' swapOpacity />
         } else if (decimalPart > 0) {
           decimalPart = 0;
           return <FontAwesomeIcon key={i} icon={faStarHalfAlt} className='star'/>
         } else {
-          return <img src={starOff} alt="" className="star-off" />
+          return <img key={i} src={starOff} alt="" className="star-off" />
         }
       })}
     </>

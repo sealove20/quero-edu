@@ -29,7 +29,7 @@ function CourseCard({ item }) {
       </div>
       <div className='course-stars-wrapper'>
         <p className='course-score'>{score}</p>
-        <Star totalStars={5} score={score} />
+        <Star totalStars={5} score={score} item={item}/>
       </div>
       <hr/>
       <div className='course-kind-and-shift'>

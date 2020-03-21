@@ -2,8 +2,6 @@ import React from 'react';
 
 import './styles.scss';
 
-import HeaderInfo from '../HeaderInfo';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';

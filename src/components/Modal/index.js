@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
@@ -196,14 +196,14 @@ function Modal({ isModalOpen, closeModal }) {
           </div>
           <HorizontalLine />
           {filteredScholarships.map((course, index) => (
-          <>
+          <Fragment key={`${index}FRAGMENT`}>
             <ResultCard 
-              key={index} 
+              key={`${course.course.name}${course.university.name}MODAL`}
               item={course} 
               handleCheckboxFavouriteScholarshipChange={handleCheckboxFavouriteScholarshipChange}
             />
-            <HorizontalLine />
-          </> 
+            <HorizontalLine key={`${index}HR`}/>
+          </Fragment> 
           ))}
           <ActionButtons firstbuttonText='Cancelar' secondButtonText='Adicionar bolsa(s)'>
             <button className='modal-cancel' onClick={() => closeModal()}>Cancelar</button>
