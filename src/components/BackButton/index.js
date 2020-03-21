@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function() {
   return (
-    <button className="back-button" data-test='back-button-component'>
+    <button className='back-button' data-test='back-button-component'>
       <FontAwesomeIcon icon={faAngleLeft} />
       <p>Minha Conta</p>
     </button>

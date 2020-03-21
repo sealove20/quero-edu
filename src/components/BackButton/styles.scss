@@ -11,6 +11,7 @@
 
   border: none;
   margin-top: 40px;
+  cursor: pointer;
   background-color: transparent;
   color: $secondaryBlue;
   @include common-text-style();

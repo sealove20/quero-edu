@@ -23,6 +23,7 @@
     height: 100%;
     width: 30%;
     
+    cursor: pointer;
     color: $secondaryBlue;
   
     .header-info-mobile-text {
@@ -50,6 +51,7 @@
     height: 100%;
     width: 30%;
     
+    cursor: pointer;
     color: $secondaryBlue;
   
     .header-user-mobile-text {
@@ -71,6 +73,8 @@
 
   .header-card-wrapper {
     display: none;
+
+    cursor: pointer;
   }
 
   .header-logo-wrapper {
@@ -80,6 +84,8 @@
     
     height: 100%;
     width: 100%;
+
+    cursor: pointer;
     
     .header-logo {
       width: 150px;

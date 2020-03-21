@@ -5,6 +5,7 @@
   align-items: center;
 
   margin-top: 45px;
+  cursor: pointer;
   box-shadow: 1px 1px 15px -7px rgba(0,0,0,0.50);
 }
 
@@ -17,5 +18,11 @@
     height: 530px;
     
     margin: 20px 20px;
+    transition: all 0.3s ease-in-out;
   }
+
+  .card-wrapper:hover {
+    transform: scale(1.1);
+  }
+
 }
