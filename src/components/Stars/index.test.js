@@ -1,4 +1,5 @@
 import { checkProps } from '../../../tests/testUtils';
+
 import Stars from './';
 
 const defaultProps = {
