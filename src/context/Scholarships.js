@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
+import BeatLoader from 'react-spinners/BeatLoader';
 
 import { getScholarships } from '../services/api';
 
@@ -78,7 +79,11 @@ export function ScholarshipsProvider({ children }) {
   return (
     <>
       {loading ? (
-        <p>CARREGANDO</p>
+        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <p>CARREGANDO</p>
+          <BeatLoader loading={loading} />
+        </div>
+
       ) : (
         <ScholarshipsContext.Provider value={{ 
           scholarships, 
