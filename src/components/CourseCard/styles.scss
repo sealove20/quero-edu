@@ -96,30 +96,12 @@
 
     margin: 15px 0;
 
-    .course-price-enabled {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-
-      height: 75px;
+    .course-price-disabled-title {
+      font-weight: bold;
     }
 
-    .course-price-disabled {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-
-      height: 75px;
-
-      .course-price-disabled-title {
-        font-weight: bold;
-      }
-
-      .course-price-disabled-text {
-        width: 215px;
-      }
+    .course-price-disabled-text {
+      width: 215px;
     }
 
     .course-price-name {

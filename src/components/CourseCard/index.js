@@ -42,19 +42,19 @@ function CourseCard({ item }) {
       <div className='course-price-wrapper'>
         { enabled 
             ? 
-              <div className='course-price-enabled'>
+              <>
                 <p className='course-price-name'>Mensalidade com o Quero Bolsa:</p>
                 <p className='course-full-price'>R${full_price}</p>
                 <div className='course-with-discount-wrapper'>
                   <p className='course-with-discount'>R$ {price_with_discount} </p>
                   <p className='course-price-text'> {`/mês`} </p>
                 </div>
-              </div>
+              </>
             :
-              <div className='course-price-disabled'>
+              <>
                 <p className='course-price-disabled-title'>Bolsa indisponível.</p>
                 <p className='course-price-disabled-text'>Entre em contato com nosso atendimento para saber mais.</p>
-              </div>
+              </>
       }
 
       </div>
