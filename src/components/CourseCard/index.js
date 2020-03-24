@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss'
@@ -74,4 +74,4 @@ CourseCard.propTypes = {
   item: PropTypes.object
 }
 
-export default CourseCard;
+export default memo(CourseCard);

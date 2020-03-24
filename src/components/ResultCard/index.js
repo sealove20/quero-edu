@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.scss';
@@ -34,4 +34,4 @@ ResultCard.propTypes = {
   handleCheckboxFavouriteScholarshipChange: PropTypes.func
 }
 
-export default ResultCard;
+export default memo(ResultCard);
