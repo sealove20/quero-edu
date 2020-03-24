@@ -51,8 +51,8 @@
   }
 
   .tab-menu-item:nth-child(1) {
-    border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+    border-bottom-left-radius: 5px;
   }
 
   .tab-menu-item:nth-child(2) {
@@ -64,6 +64,6 @@
 
   .tab-menu-item:nth-child(3) {
     border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+    border-top-right-radius: 5px;
   } 
 }

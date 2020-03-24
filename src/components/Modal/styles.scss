@@ -145,6 +145,19 @@
         background-color: $primaryYellow;
         color: $blackText;
       }
+      
+      .modal-add-disabled {
+        height: 60px;
+        width: 60%;
+    
+        border: 2px solid rgba(150, 150, 150, 0.3);
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: not-allowed;
+        background-color: rgba(189, 189, 189, 0.5);
+        color: rgba(130, 130, 130, 1);
+      }
     }
   }
 }
@@ -202,6 +215,11 @@
         }
       
         .modal-add {
+          height: 50px;
+          width: 200px;
+        }
+
+        .modal-add-disabled {
           height: 50px;
           width: 200px;
         }

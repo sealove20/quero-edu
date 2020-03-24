@@ -42,7 +42,8 @@ function Modal({ isModalOpen, closeModal }) {
   const [remote, setRemote] = useState(true);
   const [sortScholarship, setSortScholarship] = useState('university');
   const [filteredScholarships, setFilteredScholarships] = useState(scholarships);
-  const [modalFavoriteScholarships, setModalFavoriteScholarships] = useState(favoritesScholarships);
+  const [memoModalFavoriteScholarships, setMemoModalFavoriteScholarships] = useState(favoritesScholarships);
+  const [modalFavoriteScholarships, setModalFavoriteScholarships] = useState([]);
 
   const cities = [...new Set(scholarships.map(course => course.campus.city))];
   const courses = [...new Set(scholarships.map(course => course.course.name))];
@@ -64,13 +65,14 @@ function Modal({ isModalOpen, closeModal }) {
       result = result.sort(sortPrice);
     }
 
-    setModalFavoriteScholarships(favoritesScholarships);
+    setMemoModalFavoriteScholarships(favoritesScholarships);
 
     const favorites = JSON.stringify(favoritesScholarships);
     result = result.filter(filteredScholarship => {
       return !favorites.includes(JSON.stringify(filteredScholarship));
     });
     setFilteredScholarships(result);
+
   }, [city, course, presential, remote, price, sortScholarship, favoritesScholarships]);
 
   //modalReset
@@ -124,8 +126,9 @@ function Modal({ isModalOpen, closeModal }) {
   }
 
   function addFavouriteScholarships() {
-    setFavoritesScholarships(modalFavoriteScholarships);
-    setFavoritesStorage(modalFavoriteScholarships);
+    setFavoritesScholarships([...memoModalFavoriteScholarships,...modalFavoriteScholarships]);
+    setFavoritesStorage([...memoModalFavoriteScholarships,...modalFavoriteScholarships]);
+    setModalFavoriteScholarships([]);
     closeModal();
   }
 
@@ -207,7 +210,7 @@ function Modal({ isModalOpen, closeModal }) {
           ))}
           <ActionButtons firstbuttonText='Cancelar' secondButtonText='Adicionar bolsa(s)'>
             <button className='modal-cancel' onClick={() => closeModal()}>Cancelar</button>
-            <button className='modal-add' onClick={() => addFavouriteScholarships()} >Adicionar bolsa(s)</button>
+            <button className={modalFavoriteScholarships.length > 0 ? 'modal-add' : 'modal-add-disabled'} onClick={() => addFavouriteScholarships()} >Adicionar bolsa(s)</button>
           </ActionButtons>
         </div>
       </div>
