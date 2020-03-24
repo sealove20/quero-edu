@@ -11,13 +11,13 @@ function ResultCard({ item, handleCheckboxFavouriteScholarshipChange }) {
   return (
     <div className='modal-results-wrapper'>
       <ResultCardCheckbox  item={item} handleCheckbox={handleCheckboxFavouriteScholarshipChange}/>
-      <img src={logo_url} alt="logo" className='modal-results-university-logo'/>
+      <img src={logo_url} alt='logo' className='modal-results-university-logo'/>
       <div className='modal-results-info'>
         <div className='modal-results-course-name-and-level-wrapper'>
           <p className='modal-results-course-name'>{name}</p>
           <p className='modal-results-course-level'>{level}</p>
         </div>
-        <div className="modal-results-course-price-and-discount-wrapper">
+        <div className='modal-results-course-price-and-discount-wrapper'>
           <div className='modal-results-course-discount-green-wrapper'>
             <p className='modal-results-course-discount'>Bolsa de &nbsp;</p>
             <p className='modal-results-course-discount-green'>{Math.floor(discount_percentage)}%</p>

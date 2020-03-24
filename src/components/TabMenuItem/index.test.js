@@ -5,10 +5,10 @@ import { findByTestAttr, checkProps } from '../../../tests/testUtils';
 import TabMenuItem from './';
 
 const defaultProps = {
-  text: "Todos os semestres", 
+  text: 'Todos os semestres', 
   onClick: () => {}, 
-  value: "all", 
-  active: "all"
+  value: 'all', 
+  active: 'all'
 };
 
 const setup = (props = {}) => {
