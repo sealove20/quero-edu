@@ -19,7 +19,7 @@ function FormSelect({ label, items, handleSelectChange, name, id, labelId }) {
 
 FormSelect.propTypes = {
   label: PropTypes.string, 
-  items: PropTypes.object,
+  items: PropTypes.array,
   handleSelectChange: PropTypes.func,
   name: PropTypes.string,
   id: PropTypes.string,

@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps } from '../../../tests/testUtils';
 import ActionButtons from './';
 
 const defaultProps = {
-  children: {}
+  children: []
 }
 
 const setup = (props = {}) => {

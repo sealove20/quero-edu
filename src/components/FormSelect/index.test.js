@@ -3,7 +3,7 @@ import FormSelect from './';
 
 const defaultProps = {
   label: 'user', 
-  items: {}, 
+  items: [], 
   handleSelectChange: () => {}, 
   name: 'user', 
   id: '10', 

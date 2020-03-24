@@ -3,9 +3,8 @@
 </h4>
 
 <p align="center">
+  <a href="#Laptop-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -38,7 +37,7 @@ __ou__
 $ npm install
 ```
 
-**Rodando site**
+**Rodando o site**
 ```
 $ yarn start
 ```
@@ -47,6 +46,17 @@ __ou__
 
 ```
 $ npm run start
+```
+
+**Rodando os testes**
+```
+$ yarn test
+```
+
+__ou__
+
+```
+$ npm run test
 ```
 
 ## :rocket: Tecnologias
