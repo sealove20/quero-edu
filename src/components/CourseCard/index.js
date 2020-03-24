@@ -12,14 +12,14 @@ function CourseCard({ item }) {
   const { removeFavorite, removeFavoriteStorage } = useFavoritesScholarships();
   const { 
     university: { logo_url, name: universityName, score }, 
-    course: { name: courseName, kind, shift }, start_date, full_price, price_with_discount, enabled} = item;
+    course: { name: courseName, kind, shift }, start_date, full_price, price_with_discount, enabled } = item;
 
     function handleDelete(scholarshipToDelete) {
       removeFavorite(scholarshipToDelete);
       removeFavoriteStorage(scholarshipToDelete);
     }
   return (
-    <div className='course-container'>
+    <div className='course-container' data-test='course-card-component'>
       <div className='course-logo-wrapper'>
         <img src={logo_url} alt='logo' className='course-university-logo' />
       </div>

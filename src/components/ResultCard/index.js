@@ -9,7 +9,7 @@ function ResultCard({ item, handleCheckboxFavouriteScholarshipChange }) {
   const { university : {logo_url}, course : { name, level}, discount_percentage, price_with_discount } = item;
 
   return (
-    <div className='modal-results-wrapper'>
+    <div className='modal-results-wrapper' data-test='result-card-component'>
       <ResultCardCheckbox  item={item} handleCheckbox={handleCheckboxFavouriteScholarshipChange}/>
       <img src={logo_url} alt='logo' className='modal-results-university-logo'/>
       <div className='modal-results-info'>
@@ -30,7 +30,8 @@ function ResultCard({ item, handleCheckboxFavouriteScholarshipChange }) {
 }
 
 ResultCard.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  handleCheckboxFavouriteScholarshipChange: PropTypes.func
 }
 
 export default ResultCard;

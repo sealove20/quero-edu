@@ -28,7 +28,6 @@ function Modal({ isModalOpen, closeModal }) {
     sortUniversityName,
     sortCourseName,
     sortPrice
-    
   } = useScholarships();
   
   const {
@@ -113,7 +112,7 @@ function Modal({ isModalOpen, closeModal }) {
   }
 
   function handlePrice(event) {
-    setPrice(event.target.value);
+    setPrice(event.target.value)
   }
 
   function handleCheckboxFavouriteScholarshipChange(event, favorite) {
@@ -134,7 +133,7 @@ function Modal({ isModalOpen, closeModal }) {
 
   if(!isModalOpen) return null
   return (
-    <div className='modal'>
+    <div className='modal' data-test='modal-component'>
       <FontAwesomeIcon icon={faTimes} onClick={() => closeModal()} className='modal-close-icon' />
       <div className='modal-content'>
         <div className='modal-wrapper'> 

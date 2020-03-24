@@ -5,7 +5,7 @@ import './styles.scss';
 
 function FormSelect({ label, items, handleSelectChange, name, id, labelId }) {
   return (
-    <div className='modal-form-select-wrapper'>
+    <div className='modal-form-select-wrapper' data-test='form-select-component'>
       <label htmlFor={labelId} className='modal-form-select-label'>{label}</label>
       <select name={name} id={id} className='modal-form-select' onChange={event => handleSelectChange(event)}>
         <option value='all'></option>
@@ -19,8 +19,11 @@ function FormSelect({ label, items, handleSelectChange, name, id, labelId }) {
 
 FormSelect.propTypes = {
   label: PropTypes.string, 
-  items: PropTypes.array,
-  handleSelectChange: PropTypes.func
+  items: PropTypes.object,
+  handleSelectChange: PropTypes.func,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  labelId: PropTypes.string
 }
 
 export default FormSelect;

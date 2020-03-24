@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function Footer() {
   return (
     <footer id='footer'>
-      <div className='cards-wrapper'>
+      <div className='cards-wrapper' data-test='footer-component'>
         <FooterCard iconName={faWhatsapp} cardTitle={'0800 123 2222'} cardText={'Segunda a sexta de 8h às 22h'} shortText={'Seg - Sex 8h-22h'} className='whats' />
         <FooterCard iconName={faComments} cardTitle={'Chat ao vivo'} cardText={'Seg - Sex 8h-22h'} shortText={'Chat'} className='chat'/>
         <FooterCard iconName={faEnvelope} cardTitle={'Mande um e-mail'} cardText={'Respondemos rapidinho'} shortText={'E-mail'} className='mail'/>

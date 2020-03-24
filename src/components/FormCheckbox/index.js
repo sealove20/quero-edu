@@ -25,7 +25,9 @@ FormCheckBox.propTypes = {
   title: PropTypes.string, 
   name: PropTypes.string, 
   id: PropTypes.string, 
-  labelId: PropTypes.string
+  labelId: PropTypes.string,
+  handleCheckboxChange: PropTypes.func,
+  checked: PropTypes.bool
 }
 
 export default FormCheckBox;

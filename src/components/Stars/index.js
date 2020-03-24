@@ -29,7 +29,8 @@ function Stars({ totalStars, score, item }) {
 
 Stars.propTypes = {
   totalStars: PropTypes.number, 
-  score: PropTypes.number
+  score: PropTypes.number,
+  item: PropTypes.object
 }
 
 export default Stars;

@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function FooterCard({ iconName, cardTitle, cardText, shortText }) {
   return (
-    <div className='container'>
+    <div className='container' data-test='footer-card-component'>
       <div className='footer-wrapper'>        
         <FontAwesomeIcon icon={ iconName } className='footer-icon' />
         <div className='card-text-wrapper'>

@@ -2,23 +2,23 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { findByTestAttr, checkProps } from '../../../tests/testUtils';
-import ActionButtons from './';
+import ModalButton from './';
 
 const defaultProps = {
-  children: {}
+  openModal: () => {}
 }
 
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
-  return shallow(<ActionButtons {...setupProps} />);
+  return shallow(<ModalButton {...setupProps} />);
 };
 
 test('render without error', () => {
   const wrapper = setup();
-  const component = findByTestAttr(wrapper, 'action-buttons-component');
+  const component = findByTestAttr(wrapper, 'modal-button-component');
   expect(component.length).toBe(1);
 });
 test('does not throw warning with expected props', () => {
   const expectedProps = defaultProps;
-  checkProps(ActionButtons, expectedProps);
+  checkProps(ModalButton, expectedProps);
 });
