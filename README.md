@@ -1,6 +1,6 @@
-<h4 align="center">
+<h1 align="center">
   Quero Bolsa
-</h4>
+</h1>
 
 <p align="center">
   <a href="#Laptop-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
